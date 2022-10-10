@@ -3,8 +3,8 @@ Use axios to do load test of APIs
 
 # Development Environment
 ## Settings
-### node: v16.14.2
-### npm: 8.15.0
+1. node: v16.14.2
+2. npm: 8.15.0
 
 # Run load testing
 Change the url of your API from https://www.google.com/
