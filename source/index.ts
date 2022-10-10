@@ -4,11 +4,11 @@ const CHILD_PROCESSES = 20;
 const URL = 'https://www.google.com/';
 
 (async () => {
-  let times: number[] = [];
-  let children = [];
+  const times: number[] = [];
+  const children = [];
 
   for (let i = 0; i < CHILD_PROCESSES; i++) {
-    let childProcess = spawn(`npx ts-node ./source/child.ts --url=${URL}`, { shell: true })
+    const childProcess = spawn(`npx ts-node ./source/child.ts --url=${URL}`, { shell: true })
     children.push(childProcess);
   }
 
