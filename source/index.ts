@@ -1,4 +1,4 @@
-import * as childProc from 'child_process';
+import {spawn} from 'child_process';
 
 const CHILD_PROCESSES = 20;
 const URL = 'https://www.google.com/';
@@ -8,7 +8,7 @@ const URL = 'https://www.google.com/';
   let children = [];
 
   for (let i = 0; i < CHILD_PROCESSES; i++) {
-    let childProcess = childProc.spawn("node", ["child.js", `--url=${URL}`])
+    let childProcess = spawn(`npx ts-node ./source/child.ts --url=${URL}`, { shell: true })
     children.push(childProcess);
   }
 
@@ -29,7 +29,6 @@ const URL = 'https://www.google.com/';
   });
 
   responses = await Promise.all(responses);
-  console.log(999932, responses)
 
   if (responses.filter(Boolean).length == responses.length) {
     const sum = times.reduce((a, b) => a + b, 0);
